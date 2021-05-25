@@ -10,6 +10,8 @@ import {ComponentsModule} from "./components/components.module";
 
 import {environment} from "../environments/environment";
 import {AppRoutingModule} from "./app-routing.module";
+import {HttpClientModule} from "@angular/common/http";
+import {FollowersService} from "./services/followers.service";
 
 @NgModule({
   declarations: [
@@ -23,9 +25,12 @@ import {AppRoutingModule} from "./app-routing.module";
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ComponentsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    FollowersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

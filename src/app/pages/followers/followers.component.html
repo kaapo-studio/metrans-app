@@ -1,0 +1,22 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Followers</h1>
+  <ng-container *ngFor="let follower of followers">
+    <mat-card class="follower-card">
+      <mat-card-header>
+        <mat-card-title>{{follower.name}}</mat-card-title>
+        <mat-card-subtitle>{{follower.username}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <a [href]="follower.website" mat-button>
+          {{follower.website}}
+        </a>
+        <a href="mailto:{{follower.email}}" mat-button>
+          {{follower.email}}
+        </a>
+      </mat-card-content>
+      <mat-card-actions>
+        <a [routerLink]="['/followers', follower.name, follower.id.toString()]" mat-button>View profile</a>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>
