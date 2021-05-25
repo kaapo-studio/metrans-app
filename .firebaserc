@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "metrans-38cbc": {
+      "hosting": {
+        "metrans-app": [
+          "metrans-38cbc"
+        ]
+      }
+    }
+  }
+}
