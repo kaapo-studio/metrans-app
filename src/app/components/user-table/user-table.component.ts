@@ -2,6 +2,9 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} fr
 import {Follower} from "../../interfaces";
 import {MatTable} from "@angular/material/table";
 import {Observable, Subscription} from "rxjs";
+import firebase from "firebase";
+import {AngularFireAuth} from "@angular/fire/auth";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-user-table',
@@ -14,7 +17,7 @@ export class UserTableComponent implements OnInit, OnDestroy {
   public followers: Follower[] = [];
 
   @Input()
-  formEvent: Observable<void> | undefined;
+  public formEvent: Observable<void> | undefined;
 
   formEventsSubscription: Subscription | undefined;
 
@@ -25,11 +28,11 @@ export class UserTableComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['name', 'website', 'action'];
 
-  constructor() {
+  constructor(public auth: AuthService) {
   }
 
   ngOnInit(): void {
-    this.formEventsSubscription = this.formEvent?.subscribe(() => this.onRefreshTable())
+    this.formEventsSubscription = this.formEvent?.subscribe(() => this.onRefreshTable());
   }
 
   ngOnDestroy() {
@@ -45,7 +48,6 @@ export class UserTableComponent implements OnInit, OnDestroy {
 
 
   public onRefreshTable() {
-    console.log('onRefreshTable')
     this.table?.renderRows()
   }
 

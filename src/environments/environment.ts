@@ -13,7 +13,8 @@ export const environment = {
     appId: "1:953413660602:web:9314a0316ac95f0831f783",
     measurementId: "G-7KQPV4W9DY"
   },
-  usersUrl: "https://jsonplaceholder.typicode.com/users"
+  usersUrl: "https://jsonplaceholder.typicode.com/users",
+  homeUrl: '/followers'
 };
 
 /*

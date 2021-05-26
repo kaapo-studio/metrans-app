@@ -1,8 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FollowersService} from "../../services/followers.service";
 import {Follower} from "../../interfaces";
-import {Subject, Subscription} from "rxjs";
+import {Observable, Subject, Subscription} from "rxjs";
 import {FormBuilder, FormGroupDirective, Validators} from "@angular/forms";
+import firebase from "firebase";
+import {AngularFireAuth} from "@angular/fire/auth";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-followers',
@@ -23,7 +26,8 @@ export class FollowersComponent implements OnInit, OnDestroy {
 
   constructor(
     private followersServ: FollowersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public auth: AuthService
   ) {
   }
 

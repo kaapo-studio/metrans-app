@@ -25,6 +25,7 @@
         (click)="banFollower(element)"
         color="warn"
         mat-icon-button
+        *ngIf="auth.user$ | async"
       >
         <mat-icon>dangerous</mat-icon>
       </button>

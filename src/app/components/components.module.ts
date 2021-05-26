@@ -12,9 +12,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { UserTableComponent } from './user-table/user-table.component';
 import {MatTableModule} from "@angular/material/table";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [NavComponent, UserProfileComponent, UserTableComponent],
+  declarations: [NavComponent, UserProfileComponent, UserTableComponent, FooterComponent],
   imports: [
     MatButtonModule,
     MatSidenavModule,
@@ -31,6 +32,7 @@ import {MatTableModule} from "@angular/material/table";
     NavComponent,
     UserProfileComponent,
     UserTableComponent,
+    FooterComponent,
   ]
 })
 

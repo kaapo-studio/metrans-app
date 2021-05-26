@@ -1,33 +1,54 @@
 <section class="grid-container">
   <h1 class="mat-h1">Followers</h1>
+  <ng-template #anonymousUser>
+    <button
+      routerLink="/login"
+      [type]="submit"
+      color="primary"
+      mat-raised-button
+      class="anonymous-btn"
+    >
+      Login to manipulate followers
+    </button>
+  </ng-template>
 
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="followerForm">
+  <form
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+    *ngIf="(auth.user$ | async); else anonymousUser"
+    [formGroup]="followerForm"
+  >
     <div>
       <mat-form-field class="full-width">
         <mat-label>Id</mat-label>
-        <input formControlName="id" matInput type="text" required>
+        <input formControlName="id" matInput required type="text">
       </mat-form-field>
 
 
       <mat-form-field class="full-width">
         <mat-label>Name</mat-label>
-        <input formControlName="name" matInput type="text" required>
+        <input formControlName="name" matInput required type="text">
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Website</mat-label>
-        <input formControlName="website" matInput type="text" required>
+        <input formControlName="website" matInput required type="text">
       </mat-form-field>
     </div>
 
     <button
-      [type]="submit"
       [disabled]="!followerForm.valid"
+      [type]="submit"
       color="primary" mat-raised-button
     >
       Add Follower
     </button>
   </form>
 
-  <app-user-table [formEvent]="formEventsSubject.asObservable()" (banFollowerEvent)="onBanFollower($event)" [followers]="followers"></app-user-table>
+  <app-user-table
+    (banFollowerEvent)="onBanFollower($event)"
+    [followers]="followers"
+    [formEvent]="formEventsSubject.asObservable()"
+    class="full-width"
+  ></app-user-table>
 </section>

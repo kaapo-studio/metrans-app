@@ -12,6 +12,8 @@ import {environment} from "../environments/environment";
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FollowersService} from "./services/followers.service";
+import {AuthService} from "./services/auth.service";
+import {UserService} from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {FollowersService} from "./services/followers.service";
     HttpClientModule
   ],
   providers: [
-    FollowersService
+    FollowersService,
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

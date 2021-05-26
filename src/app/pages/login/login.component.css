@@ -1,0 +1,52 @@
+.login-box {
+  padding: 2rem;
+}
+
+.login-img img {
+  max-width: 300px;
+  width: 100%;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.login-details {
+  width: 100%;
+}
+
+.signup-auth {
+  display: block;
+  margin-top: 1rem;
+}
+
+.welcome-container {
+  padding: 3rem;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
+.welcome-btn {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-form-fields {
+    max-width: 200px;
+  }
+
+  .login-details {
+    width: fit-content;
+    order: 0;
+  }
+
+  .login-img {
+    order: 1;
+  }
+}

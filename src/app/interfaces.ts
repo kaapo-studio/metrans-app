@@ -27,3 +27,8 @@ export interface Company {
   catchPhrase: string;
   bs: string;
 }
+
+export interface Credentials {
+  email: string;
+  password: string;
+}

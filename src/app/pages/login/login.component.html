@@ -1,4 +1,58 @@
 <section class="grid-container">
-  <h1 class="mat-h1">Login</h1>
+  <div *ngIf="!(auth.user$ |async); else isLogin" class="login-box box-with-shadow">
+    <div class="login-img">
+      <img [src]="loginAuth ? loginImg : signUpImg" alt="account img">
+    </div>
+    <div [class.welcome]="auth.user$ | async" class="login-details">
+      <form #f="ngForm" (ngSubmit)="onSubmitAuth(f)" [formGroup]="authForm">
+        <div class="login-form-fields">
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput required type="text">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput required type="password">
+          </mat-form-field>
+        </div>
+
+        <button
+          [type]="submit"
+          color="primary"
+          mat-raised-button
+        >
+          {{loginAuth ? "Login" : "SignUp"}}
+        </button>
+      </form>
+
+      <button
+        (click)="loginAuth = !loginAuth"
+        *ngIf="loginAuth"
+        class="signup-auth"
+        mat-stroked-button
+      >
+        New account
+      </button>
+    </div>
+  </div>
+
+  <ng-template #isLogin>
+    <div class="box-with-shadow welcome-container">
+      <div class="login-img">
+        <img [src]="welcomeImg" alt="welcome img">
+      </div>
+      <div class="welcome">
+        <button
+          class="welcome-btn"
+          color="primary"
+          mat-stroked-button
+          routerLink="/followers"
+        >
+          See your followers
+        </button>
+      </div>
+    </div>
+  </ng-template>
 
 </section>
