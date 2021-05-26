@@ -11,6 +11,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { UserTableComponent } from './user-table/user-table.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [NavComponent, UserProfileComponent, UserTableComponent],
@@ -23,7 +24,8 @@ import { UserTableComponent } from './user-table/user-table.component';
     CommonModule,
     RouterModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ],
   exports: [
     NavComponent,

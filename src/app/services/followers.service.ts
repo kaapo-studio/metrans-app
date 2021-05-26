@@ -14,4 +14,7 @@ export class FollowersService {
     return this.http.get(environment.usersUrl);
   }
 
+  public banFollower(id: number) {
+    return this.http.delete(environment.usersUrl + '/' + id)
+  }
 }
