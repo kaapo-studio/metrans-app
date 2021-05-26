@@ -21,7 +21,10 @@ export class FollowersComponent implements OnInit, OnDestroy {
     website: ['', Validators.required]
   })
 
-  constructor(private followersServ: FollowersService, private fb: FormBuilder) {
+  constructor(
+    private followersServ: FollowersService,
+    private fb: FormBuilder
+  ) {
   }
 
   onSubmit(f: FormGroupDirective): void {
@@ -37,7 +40,6 @@ export class FollowersComponent implements OnInit, OnDestroy {
     this.followersSub = this.followersServ.getFollowers()
       .subscribe((followersRes) => {
         this.followers = Object.values(followersRes);
-        console.log('this.followers', this.followers)
       });
   }
 
