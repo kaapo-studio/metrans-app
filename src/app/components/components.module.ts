@@ -7,9 +7,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
+import { UserTableComponent } from './user-table/user-table.component';
 
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [NavComponent, UserProfileComponent, UserTableComponent],
   imports: [
     MatButtonModule,
     MatSidenavModule,
@@ -18,9 +22,13 @@ import {RouterModule} from "@angular/router";
     MatToolbarModule,
     CommonModule,
     RouterModule,
+    MatCardModule,
+    MatGridListModule
   ],
   exports: [
     NavComponent,
+    UserProfileComponent,
+    UserTableComponent,
   ]
 })
 

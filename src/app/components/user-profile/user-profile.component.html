@@ -1,0 +1,27 @@
+<div *ngIf="follower" class="user-profile-container">
+  <div class="user-profile-img">
+    <img alt="profile_details" src="./assets/svg/profile/profile_details.svg">
+  </div>
+  <div class="user-profile-details">
+    <div class="user-profile-header">
+      <h1>{{follower.name}}</h1>
+      <h3>@{{follower.username}}</h3>
+    </div>
+    <div class="user-profile-body">
+      <div class="user-profile-contact">
+        <p>Company: {{follower.company.name}}</p>
+        <p>Email: <a [href]="'mailto:'+follower.email" mat-button>{{follower.email}}</a></p>
+        <p>Website: <a [href]="'https://'+follower.website" mat-button target="_blank">{{follower.website}}</a></p>
+        <p>Phone: <a [href]="'tel:'+follower.phone" mat-button>{{follower.phone}}</a></p>
+      </div>
+      <div class="user-profile-address">
+        <p>City: {{follower.address.city}}</p>
+        <p>Street: {{follower.address.street}}</p>
+        <p>Suite: {{follower.address.suite}}</p>
+      </div>
+    </div>
+    <div class="user-profile-footer">
+      <button mat-raised-button routerLink="/followers">Back to Followers</button>
+    </div>
+  </div>
+</div>
