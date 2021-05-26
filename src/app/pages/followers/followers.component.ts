@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FollowersService} from "../../services/followers.service";
 import {Follower} from "../../interfaces";
-import {Subscription} from "rxjs";
+import {Subject, Subscription} from "rxjs";
+import {FormBuilder, FormGroupDirective, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-followers',
@@ -12,7 +13,24 @@ export class FollowersComponent implements OnInit, OnDestroy {
   public followers: Follower[] = [];
   public followersSub: Subscription | undefined;
 
-  constructor(private followersServ: FollowersService) {
+  formEventsSubject: Subject<void> = new Subject<void>();
+
+  followerForm = this.fb.group({
+    id: ['', Validators.required],
+    name: ['', Validators.required],
+    website: ['', Validators.required]
+  })
+
+  constructor(private followersServ: FollowersService, private fb: FormBuilder) {
+  }
+
+  onSubmit(f: FormGroupDirective): void {
+    this.followers.splice(0, 0, this.followerForm.value);
+    this.formEventsSubject.next();
+    f.resetForm()
+  }
+
+  submit() {
   }
 
   ngOnInit(): void {
@@ -34,8 +52,6 @@ export class FollowersComponent implements OnInit, OnDestroy {
       .subscribe((followersRes) => {
         let index = this.followers.indexOf(follower);
         this.followers.splice(index, 1)
-        console.log('this.followers', this.followers)
       })
   }
-
 }

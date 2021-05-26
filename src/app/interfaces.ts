@@ -8,6 +8,7 @@ export interface Follower {
   website: string;
   company: Company;
 }
+
 export interface Address {
   street: string;
   suite: string;
@@ -15,10 +16,12 @@ export interface Address {
   zipcode: string;
   geo: Geo;
 }
+
 export interface Geo {
   lat: string;
   lng: string;
 }
+
 export interface Company {
   name: string;
   catchPhrase: string;
