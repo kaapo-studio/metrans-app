@@ -1,0 +1,41 @@
+<table [dataSource]="followers" class="mat-elevation-z8" mat-table>
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef mat-header-cell> Name</th>
+    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="username">
+    <th *matHeaderCellDef mat-header-cell> Username</th>
+    <td *matCellDef="let element" mat-cell> {{element.username}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="website">
+    <th *matHeaderCellDef mat-header-cell> Website</th>
+    <td *matCellDef="let element" mat-cell> {{element.website}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="action">
+    <th *matHeaderCellDef mat-header-cell> Action</th>
+    <td *matCellDef="let element" mat-cell>
+      <button
+        (click)="banFollower(element)"
+        color="warn"
+        mat-mini-fab
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
+
